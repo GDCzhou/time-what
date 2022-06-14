@@ -10,6 +10,9 @@
   },
   "dependencies": {
     "@iconify-json/carbon": "^1.1.5",
+    "@vueuse/core": "^8.6.0",
+    "fuse.js": "^6.6.2",
+    "timezones.json": "^1.6.1",
     "vue": "^3.2.36"
   },
   "devDependencies": {
