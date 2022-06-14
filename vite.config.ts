@@ -24,8 +24,10 @@ export default defineConfig({
       presets: [presetUno(), presetAttributify(), presetIcons()],
       shortcuts: {
         'border-base': 'border-gray/20 dark:border-gray/15',
-        'bg-base': 'bg-white dark:bg-truegray-900',
+        'bg-base': 'dark:bg-truegray-900',
         'bg-canvas': 'bg-gray:15 dark:bg-truegray-800',
+        'bg-hover': 'hover:bg-gray:15',
+        'icon-hover': 'op50 hover:op100',
       },
     }),
   ],

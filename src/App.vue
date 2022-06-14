@@ -6,7 +6,7 @@
     <!-- dark 黑夜模式下的切换背景颜色 -->
     <div
       border="~ base rounded"
-      m2 p2
+      m10 p2
       shadow
       bg-base
     >
