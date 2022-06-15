@@ -19,15 +19,15 @@ const time = computed(() => formatter.format(now.value))
 </script>
 
 <template>
-  <div flex gap2 py1 items-center>
+  <div flex gap2 py1 items-center flex-auto>
     <div font-mono font-600 w-10 ma text-center>
       {{ offset }}
     </div>
     <div flex="~ col" flex-auto>
-      <div font-sans text-xl font-500>
+      <div font-sans text-xl text-left font-500>
         {{ city }}<sup border="~ base rounded" p="x1" ml1 inline-black>{{ timezone.abbr }}</sup>
       </div>
-      <div op50 text-sm>
+      <div op50 text-sm text-left>
         {{ state }}
       </div>
     </div>

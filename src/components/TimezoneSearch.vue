@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Fuse from 'fuse.js'
+import { useOutside } from '../util'
 import type { Timezone } from '~/composable/types'
 
 const fuse = new Fuse(timezone, {
@@ -7,9 +8,11 @@ const fuse = new Fuse(timezone, {
 })
 let input = $ref('')
 let index = $ref(0)
+const drawersRef = ref<HTMLElement>()
 const add = (t: Timezone) => {
   addToTimezone(t)
   input = ''
+  index = 0
 }
 const searchResult = $computed(() => {
   return fuse.search(input)
@@ -22,6 +25,9 @@ function keydown(e: KeyboardEvent) {
   else if (e.key === 'Enter')
     add(searchResult[index].item)
 }
+useOutside(drawersRef, () => {
+  input = ''
+})
 </script>
 
 <template>
