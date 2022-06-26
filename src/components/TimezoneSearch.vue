@@ -31,11 +31,12 @@ useOutside(drawersRef, () => {
 </script>
 
 <template>
-  <div relative border>
+  <div relative border rounded>
     <input
       v-model="input" type="text"
       placeholder="Search timezone..."
-      p="x3 y2" text-lg border="~ base rounded"
+      p="x4 y2" text-lg
+      outline="none"
       bg-transparent w-full
       @keydown="keydown"
     >

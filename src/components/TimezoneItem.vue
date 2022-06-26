@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { homeoffset } from '../composable/state'
 import type { Timezone } from '../composable/types'
 
 const { timezone } = defineProps<{
@@ -14,13 +15,18 @@ const formatter = new Intl.DateTimeFormat('en-US', {
 })
 const state = $computed(() => timezone.name.split('/')[0].replace(/_/g, ' '))
 const city = $computed(() => timezone.name.split('/')[1]?.replace(/_/g, ' ') || '')
-const offset = computed(() => timezone.offset > 0 ? `+${timezone.offset}` : timezone.offset)
+const offset = $computed(() => {
+  const offset = timezone.offset - homeoffset.value
+  return offset > 0 ? `+${offset}` : offset
+},
+)
 const time = computed(() => formatter.format(now.value))
 </script>
 
 <template>
   <div flex gap2 py1 items-center flex-auto>
-    <div font-mono font-600 w-10 ma text-center>
+    <div v-if="!offset" i-carbon-home font-mono font-600 w-10 ma text-cente text-xl />
+    <div v-else font-mono font-600 w-10 ma text-center>
       {{ offset }}
     </div>
     <div flex="~ col" flex-auto>
