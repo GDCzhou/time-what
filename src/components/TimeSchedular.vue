@@ -1,21 +1,9 @@
 <script setup lang="ts">
 import { homeZone, zones } from '../composable/state'
-import type { Timezone } from '~/composable/types'
-
-let currentindex = $ref(0)
-const dragOver = (e: DragEvent, index: number) => {
-  const temp = zoneNames.value[currentindex]
-  zoneNames.value[currentindex] = zoneNames.value[index]
-  zoneNames.value[index] = temp
-  currentindex = index
-}
-const dragStart = (e: DragEvent, index: number) => {
-  currentindex = index
-}
 </script>
 
 <template>
-  <div relative>
+  <div relative mt2>
     <div
       v-for="zone, idx of zones"
       :key="zone.name"
@@ -33,14 +21,12 @@ const dragStart = (e: DragEvent, index: number) => {
           i-carbon-close
           icon-hover
           title="remove"
-          @click="remove(zone)"
         />
         <button
           v-if="zone.name !== homeZone"
           i-carbon-home
           icon-hover
           title="swap"
-          @click="switchTimeZone(zone)"
         />
       </div>
     </div>

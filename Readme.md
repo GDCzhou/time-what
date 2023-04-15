@@ -1,4 +1,5 @@
 世界时钟项目
+  worldtime https://www.worldtimebuddy.com/
 
 所用技术：
   vue3 typescript vite vueuse fuse.js(模糊查询) timezones.json(世界时钟数据) 
@@ -21,3 +22,5 @@
 功能待完善：
   切换动画
   其它
+
+
